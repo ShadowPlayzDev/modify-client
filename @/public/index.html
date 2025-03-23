@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MODIFY Client</title>
+    <link rel="stylesheet" href="@/assets/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <header class="">
+        <div class="logo">
+            <img src="@/assets/img/modify-logo.png" alt="MODIFY Client" class="logo-image">
+        </div>
+        <div class="game-selector">
+            <button class="game-button tab-button active-tab" onclick="openTab('overwatch')">
+                <img src="@/assets/img/overwatch-icon.png" alt="" class="game-icon">
+                Overwatch
+            </button>
+            <button class="game-button tab-button" onclick="openTab('marvel')">
+                <img src="@/assets/img/marvel-rivals-icon.png" alt="" class="game-icon">
+                Marvel Rivals
+            </button>
+        </div>
+        <div class="settings">
+            <i class="material-icons" onclick="openSettings()">settings</i>
+        </div>
+    </header>
+
+</head>
+<body class="dark-mode">
+    <div id="overwatch" class="tab-content">
+        <h2>Overwatch</h2>
+        <select id="gameMode" class="styled-select">
+            <option value="unranked">Unranked</option>
+            <option value="ranked">Ranked</option>
+        </select>
+        <select id="gameType" class="styled-select">
+            <option value="5v5">5v5</option>
+            <option value="6v6">6v6</option>
+        </select>
+        <select id="gameVersion" class="styled-select">
+            <option value="newer">Latest</option>
+            <option value="classic">Classic</option>
+        </select>
+        <button onclick="launchGame('overwatch')" class="squircle-button">Launch Game</button>
+    </div>
+
+    <div id="marvel" class="tab-content" style="display: none;">
+        <h2>Marvel Rivals</h2>
+        <p>Marvel Rivals doesn't support MODIFY Client. <a href="#">Learn More</a> </p>
+        <button onclick="launchGame('marvel')" class="squircle-button">Launch Game</button>
+    </div>
+
+    <div id="launchModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">close</span>
+            </div>
+            <p>Launch using:</p>
+            <div class="modal-buttons">
+                <button onclick="launchWith('epic')" class="squircle-button">Epic</button>
+                <button onclick="launchWith('steam')" class="squircle-button">Steam</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Settings</h3>
+                <span class="close" onclick="closeSettings()">close</span>
+            </div>
+            <div class="modal-body">
+                <button id="themeButton" onclick="toggleTheme()" class="squircle-button">
+                    <i id="themeIcon" class="material-icons">light_mode</i> Theme
+                </button>
+                <button onclick="login()" class="squircle-button">Log in</button>
+                <p id="footerDisplay"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="@/assets/js/script.js"></script>
+</body>
+</html>
